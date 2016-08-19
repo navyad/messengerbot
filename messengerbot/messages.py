@@ -27,9 +27,12 @@ class Recipient(object):
         self.phone_number = phone_number
 
     def to_dict(self):
+        data = {}
         if self.recipient_id:
-            return {'id': self.recipient_id}
-        return {'phone_number': self.phone_number}
+            data['id'] = self.recipient_id
+        if self.phone_number:
+            data['phone_number'] = self.phone_number
+        return data
 
 
 class MessageRequest(object):
